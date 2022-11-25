@@ -1,12 +1,11 @@
 [tool.poetry]
-name = "verkkokauppa"
+name = "tdd-ostoskori"
 version = "0.1.0"
 description = ""
-authors = ["Kalle Ilves <kalle.ilves@helsinki.fi>"]
+authors = ["Matti Luukkainen <mluukkai@iki.fi>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-coverage = "^6.5.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"
