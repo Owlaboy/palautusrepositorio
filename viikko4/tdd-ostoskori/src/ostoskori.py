@@ -40,8 +40,8 @@ class Ostoskori:
                 del self.ostoslista[poistettava.nimi()]
                 
     def tyhjenna(self):
-        pass
         # tyhjentää ostoskorin
+        self.ostoslista = {}
 
     def ostokset(self):
         return list(self.ostoslista.values())
