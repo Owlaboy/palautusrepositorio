@@ -54,3 +54,11 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(water)
 
         self.assertEqual(self.kori.ostokset()[0].tuote, water)
+
+    def test_kahden_tuottee_lisaamisen_jalkeen_ostoskori_sisataa_kaksi_ostosta(self):
+        water = Tuote("fiji water", 50)
+        truffel_oil = Tuote("truffle oil" , 99999)
+        self.kori.lisaa_tuote(water)
+        self.kori.lisaa_tuote(truffel_oil)
+
+        self.assertEqual(len(self.kori.ostokset()), 2)
