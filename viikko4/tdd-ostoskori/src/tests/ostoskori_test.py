@@ -1,6 +1,7 @@
 import unittest
 from ostoskori import Ostoskori
 from tuote import Tuote
+from ostos import Ostos
 
 class TestOstoskori(unittest.TestCase):
     def setUp(self):
@@ -69,3 +70,12 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(water)
 
         self.assertEqual(len(self.kori.ostokset()), 1)
+
+    def test_kahden_saman_tuotteen_lisaamisen_jalkeen_ostoskori_sisaltaa_oikean_laisen_ostoksen(self):
+        water = Tuote("fiji water", 50)
+        
+        self.kori.lisaa_tuote(water)
+        self.kori.lisaa_tuote(water)
+
+        self.assertEqual(self.kori.ostokset()[0].tuotteen_nimi(), "fiji water")
+        self.assertEqual(self.kori.ostokset()[0].lukumaara(), 2)
