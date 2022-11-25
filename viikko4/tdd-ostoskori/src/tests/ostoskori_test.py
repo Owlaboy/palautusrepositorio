@@ -41,3 +41,16 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(water)
 
         self.assertEqual(self.kori.hinta(), 50*2)
+
+    def test_yhden_tuotteen_lisaamisen_jalkeen_korissa_on_1_ostos(self):
+        water = Tuote("fiji water", 50)
+        self.kori.lisaa_tuote(water)
+        maara = len(self.kori.ostokset())
+
+        self.assertEqual(maara, 1)
+
+    def test_yhden_tuotteen_lisaamisen_jalkeen_ostoskori_sisaltaa_oikean_ostoksen(self):
+        water = Tuote("fiji water", 50)
+        self.kori.lisaa_tuote(water)
+
+        self.assertEqual(self.kori.ostokset()[0].tuote, water)
