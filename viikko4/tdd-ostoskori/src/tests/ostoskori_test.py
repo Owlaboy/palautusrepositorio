@@ -24,6 +24,7 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(maito)
         self.assertEqual(self.kori.hinta(), 3)
     
+    #test4
     def test_kahden_eri_tuotteen_lisaamisen_jalkeen_ostoskorissa_on_2_tavaraa(self):
         truffel_oil = Tuote("truffle oil" , 99999)
         water = Tuote("water", 1)
@@ -32,6 +33,15 @@ class TestOstoskori(unittest.TestCase):
 
         self.assertEqual(self.kori.tavaroita_korissa(), 2)
 
+    #test5
+    def test_kahden_eri_tuotteen_lisaamisen_jalkeen_korin_hinta_oikein(self):
+        truffel_oil = Tuote("truffle oil" , 99999)
+        water = Tuote("water", 1)
+        self.kori.lisaa_tuote(truffel_oil)
+        self.kori.lisaa_tuote(water)
+
+        self.assertEqual(self.kori.hinta(), 99999+1)
+        
     def test_kahden_saman_tuotteen_lisaamisen_jalkeen_ostoskorissa_on_2_tavaraa(self):
         water = Tuote("water", 1)
         self.kori.lisaa_tuote(water)
