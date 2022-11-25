@@ -87,4 +87,10 @@ class TestOstoskori(unittest.TestCase):
         self.kori.poista_tuote(water)
 
         self.assertEqual(self.kori.ostokset()[0].lukumaara(), 1)
-        
+
+    def test_viimeisen_tuotteen_poistamisen_jalkeen_korissa_on_0_ostosta(self):
+        water = Tuote("fiji water", 50)
+        self.kori.lisaa_tuote(water)
+        self.kori.poista_tuote(water)
+
+        self.assertEqual(len(self.kori.ostokset()), 0)
